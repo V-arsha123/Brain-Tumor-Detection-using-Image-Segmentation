@@ -1,0 +1,155 @@
+{% extends 'doctors/admindesign.html' %}
+{% block adminblock %}
+{% load staticfiles %}
+<style>
+
+
+        .upload{
+       position: absolute;
+    top: 268px;
+    margin-left: 11px;
+    padding: 30px;
+    width: 900px;
+    height: 400px;
+}
+
+        .upload table{
+            width: 34em;
+    text-align: center;
+    //: ;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    background: white;
+}
+
+        .upload table tr th{
+            color:white;
+}
+            .upload table tr th{
+            background:rgb(1, 176, 135);
+            padding:10px;
+}
+            .upload table tr td{
+                    background-color: #ffffff;
+                    margin-left: center;
+                    padding: 16px 20px;
+                    border-radius: 119px;
+}
+            .upload table tr:hover td{
+            background:rgba(237, 236, 234);
+}
+            .buttonpost {
+            background-color: #ff1a3c;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+             text-align: center;
+             text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+             margin: 4px 2px;
+            cursor: pointer;
+            }
+
+</style>
+<body>
+<h2 class="w3-jumbo w3-animate-top" style="margin-top: 134px;font-family: sans-serif;margin-left: 533px;color: black;background-color: honeydew;border-style: solid;border-color: black;width: 230px;height: 33px;margin-top: 41px;">Add Doctors</h2>
+<div class="upload">
+<form method="POST" enctype="multipart/form-data">
+
+    {%csrf_token%}
+    <table align="right" style="color:black">
+
+         <tr>
+            <td style="color:black;" ><b>Doctor Name:</b></td>
+            <td><input type="text"  name="doctorname"  placeholder="name"></td>
+        </tr>
+
+         <tr>
+            <td style="color:black;" ><b>Doctor Address:</b></td>
+            <td><input type="text"  name="doctoraddress"  placeholder="address"></td>
+        </tr>
+         <tr>
+            <td style="color:black;" ><b>Mobile No:</b></td>
+            <td><input type="text"  name="mobileno"  placeholder="mobileno"></td>
+        </tr>
+         <tr>
+            <td style="color:black;" ><b>Email id:</b></td>
+            <td><input type="email"  name="emailid"  placeholder="emailid"></td>
+        </tr>
+        <tr>
+            <td style="color:black;" ><b> Age:</b></td>
+            <td><input type="text"  name="doctorage"  placeholder="age"></td>
+        </tr>
+        <tr>
+            <td style="color:black;" ><b>Gender:</b></td>
+            <td><input type="text"  name="doctorgender"  placeholder="gender"></td>
+        </tr>
+        <tr>
+            <td style="color:black;" ><b>Speciality In:</b></td>
+            <td><input type="text"  name="speciality"  placeholder="speciality"></td>
+        </tr>
+
+
+
+         <tr>
+            <td style="text-align:center;" colspan="2"><input type="submit" class="buttonpost" name="submit" id="generate" value="Add Doctor"></td>
+        </tr>
+
+        <tr>
+            <input type="hidden" name="doctorID" id="output"/>
+        </tr>
+
+
+
+</table>
+</form>
+</div>
+<script>
+            (function() {
+	 function IDGenerator() {
+
+		 this.length = 8;
+		 this.timestamp = +new Date;
+
+		 var _getRandomInt = function( min, max ) {
+			return Math.floor( Math.random() * ( max - min + 1 ) ) + min;
+		 }
+
+		 this.generate = function() {
+			 var ts = this.timestamp.toString();
+			 var parts = ts.split( "" ).reverse();
+			 var id = "";
+
+			 for( var i = 0; i < this.length; ++i ) {
+				var index = _getRandomInt( 0, parts.length - 1 );
+				id += parts[index];
+			 }
+
+			 return id;
+		 }
+
+
+	 }
+
+
+	 document.addEventListener( "DOMContentLoaded", function() {
+		var btn = document.querySelector( "#generate" ),
+			output = document.querySelector( "#output" );
+
+		btn.addEventListener( "click", function() {
+			var generator = new IDGenerator();
+			output.value = generator.generate();
+
+		}, false);
+
+	 });
+
+
+ })();
+
+
+</script>
+</body>
+
+{% endblock %}

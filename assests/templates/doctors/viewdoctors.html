@@ -1,0 +1,84 @@
+{% extends 'doctors/admindesign.html' %}
+{% block adminblock %}
+{% load staticfiles %}
+<style>
+    .userdetails{
+     position: absolute;
+    margin-top: 90px;
+    margin-left: 176px;
+    padding: 5px;
+    padding-bottom: 230px;
+    height: 152px;
+    width: 971px;
+    overflow: scroll;
+    float: left;
+    }
+    .userdetails table{
+    width:60em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.userdetails table tr th{
+background:rgb(112,128,144);
+padding:5px;
+}
+.userdetails table tr td{
+background: rgb(255, 255, 255);
+    padding: 5px;
+}
+.userdetails table tr:hover td{
+background:rgba(255, 245, 131);;
+}
+.{
+border-style:solid;
+ border-width:1px;
+ height:380px;
+ width:360px;
+ margin-top:-10px;
+ margin-left:830px;
+ background: url("{% static '37.png' %}");
+ background-size: 100%100%;
+float:left;
+}
+</style>
+
+
+
+<body>
+<form method="POST">
+<div class="userdetails" style="overflow: scroll">
+    <table>
+        <tr>
+        <th>Doctor ID</th>
+        <th>Doctor name</th>
+        <th>Doctor address</th>
+        <th>Mobile Number</th>
+        <th>Email id</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Address</th>
+    </tr>
+    {% for o in objects %}
+    <tr>
+         <td>{{o.doctorID}}</td>
+        <td>{{o.doctorname}}</td>
+        <td>{{o.doctoraddress}}</td>
+        <td>{{o.mobileno}}</td>
+        <td>{{o.emailid}}</td>
+        <td>{{o.doctorage}}</td>
+        <td>{{o.doctorgender}}</td>
+        <td>{{o.speciality}}</td>
+    </tr>
+    {% endfor %}
+        </table>
+</div>
+<div class="image1">
+
+
+</div></form>
+</body>
+{% endblock %}

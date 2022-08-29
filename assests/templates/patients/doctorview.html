@@ -1,0 +1,118 @@
+{% extends 'patients/patientsdesign.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+.viewdetails{
+    position: relative;
+    top: 50px;
+    margin-left: 18px;
+    padding: 13px;
+    width: 1268px;
+    height: 600px;
+    overflow: auto;
+    text-align: center;
+}
+
+
+
+.viewdetails table tr th{
+    color:white;
+}
+.viewdetails table tr th{
+background: #000000;
+    padding: 10px;
+}
+.viewdetails table tr td{
+background-color: white;
+    padding: 10px;
+}
+.viewdetails table tr:hover td{
+background:rgba(237, 236, 234);
+}
+
+.viewdetails {
+    top: 0px;
+    height: 387px;
+    overflow: auto;
+    width: 88%;
+    float: left;
+    margin-left: 68px;
+    text-align: center;
+    margin-top: 77px;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    FONT-SIZE: 22PX;
+
+}
+
+
+.viewdetails table tr th{
+    color:white;
+}
+.viewdetails table tr td{
+ border:1px solid #ddd;
+ padding:8px;
+ background-color: white;
+
+ }
+.viewdetails table tr th{
+ padding-top: 12px;
+ padding-bottom: 12px;
+ text-align: center;
+ background-color: #000000  ;
+ color: white;
+
+}.viewdetails table tr:hover td{
+background:rgba(237, 236, 234);
+}
+
+    </style>
+<body>
+<form method="POST">
+    {% csrf_token %}
+<div class="viewdetails" >
+
+
+
+<table id="myTable" style="font-size:100%; color:red" align="right">
+
+    <tr>
+<th>Doctor ID</th>
+<th>Doctor Name</th>
+<th>Doctor Address</th>
+<th>Mobile No</th>
+<th>Email Id</th>
+<th>Age</th>
+<th>Gender</th>
+<th>Speciality In</th>
+    </tr>
+
+    <tr>
+        {% for v in objects %}
+
+
+        <td>{{v.doctorID}}</td>
+        <td>{{v.doctorname}}</td>
+        <td>{{v.doctoraddress}}</td>
+        <td>{{v.mobileno}}</td>
+        <td>{{v.emailid}}</td>
+        <td>{{v.doctorage}}</td>
+        <td>{{v.doctorgender}}</td>
+        <td>{{v.speciality}}</td>
+
+
+
+
+
+    </tr>
+
+
+    {% endfor %}
+
+</table>
+</div>
+</form>
+
+
+</body>
+{% endblock %}

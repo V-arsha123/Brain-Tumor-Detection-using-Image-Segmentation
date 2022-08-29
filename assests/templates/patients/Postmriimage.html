@@ -1,0 +1,115 @@
+{% extends 'patients/patientsdesign.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+
+
+        .upload{
+       position: absolute;
+    top: 261px;
+    margin-left: 39px;
+    padding: 30px;
+    width: 900px;
+    height: 245px;
+}
+
+        .upload table{
+            width: 34em;
+    text-align: center;
+    //: ;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    background: white;
+}
+
+        .upload table tr th{
+            color:white;
+}
+            .upload table tr th{
+            background:rgb(1, 176, 135);
+            padding:10px;
+}
+            .upload table tr td{
+                    background-color: #ffffff;
+                    margin-left: center;
+                    padding: 16px 20px;
+                    border-radius: 119px;
+}
+            .upload table tr:hover td{
+            background:rgba(237, 236, 234);
+}
+            .buttonpost {
+            background-color: #ff1a3c;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+             text-align: center;
+             text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+             margin: 4px 2px;
+            cursor: pointer;
+            }
+
+</style>
+<body>
+<h2 class="w3-jumbo w3-animate-top" style="margin-top: 134px;font-family: sans-serif;margin-left: 509px;color: black;background-color: honeydew;border-style: solid;border-color: black;width: 319px;height: 33px;margin-top: 41px;">Send MRI Image to Doctors</h2>
+<div class="upload">
+<form method="POST">
+
+    {%csrf_token%}
+    <table align="right" style="color:black">
+
+         <tr>
+            <td style="color:black;" ><b>Patient Name:</b></td>
+            <td><input type="text" attribute typeof="text" name="Patient_Name"  placeholder="name"></td>
+        </tr>
+
+         <tr>
+            <td style="color:black;" ><b>Patient Age:</b></td>
+            <td><input type="number" name="Patient_Age"  placeholder="Age"></td>
+        </tr>
+         <tr>
+            <td style="color:black;" ><b>Any cause of Symptoms:</b></td>
+            <td><select  name="AnyauseofSymptoms" >
+					<datalist id="countries">
+					<option class="selp" value="none">Select Your Symptoms</option>
+					<option class="selq" value="Headaches (usually worse in the morning)">Headaches (usually worse in the morning)</option>
+					<option class="selq" value="Nausea and vomiting">Nausea and vomiting</option>
+					<option class="selq" value="Changes in speech, vision, or hearing">Changes in speech, vision, or hearing</option>
+					<option class="selq" value="Problems balancing or walking">Problems balancing or walking</option>
+					<option class="selq" value="Changes in mood, personality, or ability to concentrate.">Changes in mood, personality, or ability to concentrate.</option>
+					<option class="selq" value="Problems with memory.">Problems with memory.</option>
+                    <option class="selq" value="change in sense of smell.">change in sense of smell</option>
+                    <option class="selq" value="numbness in extremities">numbness in extremities</option>
+                    <option class="selq" value="facial paralysis.">facial paralysis</option>
+                    <option class="selq" value="Muscle jerking or twitching (seizures or convulsions).">Muscle jerking or twitching (seizures or convulsions).</option>
+				</datalist></select></td>
+        </tr>
+         <tr>
+            <td style="color:black;" ><b>Upload Brain MRI Image:</b></td>
+            <td><input type="file"  name="UploadBrainMRIImage"  placeholder="UploadBrainMRI Image"></td>
+        </tr>
+        <tr>
+            <td style="color:black;" ><b> Recommendation:</b></td>
+            <td><input type="text"  name="Recommendation"  placeholder="Recommendation"></td>
+        </tr>
+
+
+
+         <tr>
+            <td style="text-align:center;" colspan="2"><input type="submit" class="buttonpost" name="submit"  value="Send to Doctor"></td>
+        </tr>
+
+        <tr>
+            <input type="hidden" name="doctorID" id="output"/>
+        </tr>
+
+
+
+</table>
+</form>
+</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body{
+        background: url("{% static 'bg3.jpg' %}");
+
+        background-size: cover;
+        }
+        .menu table{
+        width:100%;
+        text-align:center;
+        }
+        .menu table td:hover{
+        color:white;
+        background-color:#333;
+        }
+        .menu table td{
+        background-image: url("{% static 'navi_bg_divider.png' %}");
+        background-color: black;
+        background-repeat: no-repeat;
+        background-position: right;
+        padding-right: 32px;
+        padding-left: 32px;
+        line-height: 15px;
+        text-decoration: none;
+        font-family:"Times New Roman";
+        font-size: 18px;
+        color: #371C1C;
+        }
+
+        .menu table,.menu table th,.menu table td {
+        border: ;
+        border-collapse: collapse;
+        }
+        .menu table th,.menu table  td {
+        padding: 15px;
+
+        }
+        .topic h1{
+         color:white;
+         padding:10px;
+         text-align:center;
+         border-style:none;
+         height:100px;
+         width:1330px;
+         float:left;
+         font-family:Abel;
+         }
+        .giver {
+         color: #1334f0;
+         font-family: Times New Roman;
+         padding:;
+         }
+        .giver a{
+            color: white;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            cursor: pointer;
+            text-decoration: none;
+            background-color: none;
+            border-radius: 5px;
+        }
+        h1{
+        font-family:cooper;
+        font-size:40px;
+        font-color:;
+        text-align:center;
+           color: #111212;
+
+        }
+        h2{
+        font-family:new time roman;
+        text-align:30px;
+        text-align:center;
+        margin-top:px;
+        }
+        .menu {
+         border-radius:10px;
+        }
+
+
+    </style>
+</head>
+<body>
+{% csrf_token %}
+<h2 style="margin-top: 16px;margin-left: 294px;border-style:none;width: 815px;height:40px;border-color:black;background-color:white;">Brain Tumor Detection Image Segmentation Using OpenCV</h2>
+<br><br><br>
+<div class="menu">
+        <table class="giver">
+            <tr>
+                <td><a  style="color:white;text-decoration: none;" href="{% url 'adddoctor' %}">Add doctor</a></td>
+                <td><a  style="color:white;text-decoration: none;" href="{% url 'viewMRIimage' %}">View MRIScan</a></td>
+                <td><a  style="color:white;text-decoration: none;" href="{% url 'tumourscan' %}">Scan MRI</a></td>
+                <td><a  style="color:white;text-decoration: none;" href="{% url 'patientsdetails' %}">Patients Details</a></td>
+                <td><a  style="color:white;text-decoration: none;" href="{% url 'viewdoctors' %}">view Doctors</a></td>
+                <td><a  style="color:white;text-decoration: none;" href="{% url 'patientsreviews' %}">Patients Reviews</a></td>
+                <td><a  style="color:white;text-decoration: none;" href="{% url 'adminlogout' %}">LogOut</a></td>
+
+
+
+
+            </tr>
+        </table>
+
+</div>
+<div class="mainholder">
+{% block adminblock %}
+{% endblock %}
+</div>
+</body>
+</html>

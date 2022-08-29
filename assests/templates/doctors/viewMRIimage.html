@@ -1,0 +1,85 @@
+{% extends 'doctors/admindesign.html' %}
+{% block adminblock %}
+{% load staticfiles %}
+<style>
+    .userdetails{
+     position: absolute;
+    margin-top: 73px;
+    margin-left: 176px;
+    padding: 5px;
+    height: 152px;
+    width: 971px;
+    overflow: scroll;
+    float: left;
+    padding-bottom: 221px;
+    }
+    .userdetails table{
+    width:60em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.userdetails table tr th{
+background:rgb(112,128,144);
+padding:5px;
+}
+.userdetails table tr td{
+background: rgb(255, 255, 255);
+    padding: 5px;
+}
+.userdetails table tr:hover td{
+background:rgba(255, 245, 131);;
+}
+.{
+border-style:solid;
+ border-width:1px;
+ height:380px;
+ width:360px;
+ margin-top:-10px;
+ margin-left:830px;
+ background: url("{% static '37.png' %}");
+ background-size: 100%100%;
+float:left;
+}
+</style>
+
+
+
+<body>
+<form method="POST">
+<div class="userdetails" style="overflow: scroll">
+    <table>
+        <tr>
+
+        <th>MRI ScanImage</th>
+        <th>Patient Name</th>
+        <th>Age</th>
+        <th>Symptoms</th>
+        <th>Recommendation</th>
+
+
+        </tr>
+
+    <tr>
+        {% for o in objects %}
+         {% if o.UploadBrainMRI Image %}
+        <td><img src="{{o.UploadBrainMRI Image.url}}" style="width:200px; height:150px; "></td>
+        {% endif %}
+        <td>{{o.Patient_Name}}</td>
+        <td>{{o.Patient_Age}}</td>
+        <td>{{o.AnyauseofSymptoms}}</td>
+        <td>{{o.Recommendation}}</td>
+
+    </tr>
+    {% endfor %}
+        </table>
+</div>
+<div class="image1">
+
+
+</div></form>
+</body>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'doctors/admindesign.html' %}
+{% block adminblock %}
+{% load staticfiles %}
+<style>
+
+
+         #feed1{
+       font-family:Abel;
+       border-collapse:collapse;
+           width: 50%;
+    float: right;
+    font-size: 20px;
+       font-size:20px;
+       margin-top: 8px;
+        width: 200px;
+    height:100%;
+    overflow:auto;
+       }
+       #feed1 td, #feed1 th{
+       border:1px solid #ddd;
+       padding:8px;
+       background-color:white;
+
+       }
+
+       #feed1 th {
+        padding-top: -5px;
+        padding-bottom: 1px;
+        text-align: center;
+    background-color: black  ;
+    color: white;
+
+}
+
+.image1{
+          background: url("{% static 'reviews.png' %}");
+              background-size: 100% 100%;
+            width: 658px;
+    height: 275px;
+        margin-top: -834px;
+    float: left;
+}
+.imgs{
+background: url(/static/admin.jpeg);
+    position: absoulte;
+    overflow: auto;
+    padding: 1px;
+    padding-bottom: 26px;
+    width: 51%;
+    margin-top: 96px;
+    margin-left: 335px;
+    height: 175px;
+
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    width:600px;
+}
+    </style>
+<body>
+<form method="POST">
+<div class="imgs" style="overflow: scroll">
+    <table id="feed1" style="width:650px" >
+
+    <tr>
+        <th>User Name</th>
+        <th>Disease type Name</th>
+        <th>Feedback</th>
+        <th>Ratings</th>
+    </tr>
+    {% for o in objects %}
+    <tr>
+        <td>{{o.name}}</td>
+        <td>{{o.diseasetype}}</td>
+        <td>{{o.feedback}}</td>
+        <td>{{o.stars1}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</form>
+</body>
+{% endblock %}

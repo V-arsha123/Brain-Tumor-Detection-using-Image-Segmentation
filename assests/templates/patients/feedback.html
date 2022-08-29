@@ -1,0 +1,198 @@
+{% extends 'patients/patientsdesign.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+}
+    .img{
+    background: url("{% static 'foodbg1.jpg' %}");
+    background-size:cover;
+        width: 102px;
+    height: 54px;
+    border-radius:10px;
+    }
+    .feed {
+       font-family: cursive;
+    font-size: 20px;
+    color: #0093ff;
+    background-color: white;
+    border-radius: -27px;
+    margin-left: 416px;
+    margin-top: 30px;
+}
+    textarea {
+     height: 222px;
+    width: 291px;
+    margin-right: 107px;
+    font-family: Abel;
+    font-size: 25px;
+
+    }
+    input, select  {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    padding: 6px;
+    margin: 10px;
+    border-radius: 4px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+.imga{
+background: url("{% static 'book10.jpeg' %}");
+background-size:100% 100%;
+height:150%;
+width:150%;
+border-radius:40px;
+position: absolute;
+
+}
+ .buttonfeed {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  }
+  .rating {
+          display: inline-block;
+    position: relative;
+    height: 50px;
+    line-height: 5px;
+    margin-left: 662px;
+    margin-top: 392px;
+    font-size: 50px;
+}
+
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating label:last-child .icon {
+  color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #09f;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #09f;
+}
+
+</style>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="imga">
+    <table class="feed">
+        <tr>
+            <td>UserName:</td>
+            <td><input type="text" name="name" value="{{ form.firstname }}" readonly> </td>
+        </tr>
+        <tr>
+            <td>Disease Type:</td>
+            <td><input type="text" name="diseasetype"></td>
+        </tr>
+
+        <tr>
+            <td>Patients Reviews</td>
+            <td><textarea name="feedback" placeholder="please review and give your assessment and comment"></textarea></td>
+        </tr>
+
+        <tr>
+            <td style="text-align:right;"><button type="submit" class="buttonfeed">Post a Your Assessment </button></td>
+        </tr>
+    </table>
+        </div> <div class="rating">
+            <label>
+            <input type="radio" name="stars1" value="1" />
+            <span class="icon">★</span>
+             </label>
+            <label>
+            <input type="radio" name="stars1" value="2" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            </label>
+            <label>
+            <input type="radio" name="stars1" value="3" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            </label>
+            <label>
+            <input type="radio" name="stars1" value="4" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            </label>
+            <label>
+            <input type="radio" name="stars1" value="5" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            </label></div>
+
+
+</form>
+<script>
+    $(':radio').change(function() {
+  console.log('New star rating: ' + this.value);
+});
+</script>
+
+</body>
+{% endblock %}

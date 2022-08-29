@@ -1,0 +1,144 @@
+{% extends 'patients/patientsdesign.html' %}
+{% block userblock %}
+{% load staticfiles %}
+    <title>Title</title>
+<style>
+ body{
+        background: url({% static 'bg2.jpg' %});
+ background-size: cover;
+        }
+
+   #customers{
+       font-family: INITIAL;
+    border-color: #06aba6;
+    border-collapse: collapse;
+    border-style: solid;
+    border-radius: 13px;
+    width: 40%;
+    font-size: 25px;
+    color: black;
+    background-color: white;
+    margin-left: 411px;
+    margin-top: 46px;
+    position: absolute;
+
+       }
+       #customers td, #customers th{
+       border:1px solid #ddd;
+       padding:8px;
+       }
+
+
+
+       #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: black  ;
+    color: white;
+}
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    padding: 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    border-radius:10px;
+    font-family:Abel;
+    font-size:20px;
+        text-align: center;
+}
+.imga{
+background: url(/static/admin.jpeg);
+    background-size: 100% 100%;
+    margin-top: -61px;
+    margin-left: -20px;
+    height: -webkit-fill-available;
+    width: 100%;
+    overflow: auto;
+
+}
+.imgs{
+background: url("{% static 'update.png' %}");
+width:100px:
+height:200px;
+
+
+}
+input[type="submit" i],
+{
+
+
+}
+.log{
+        background-color: #03929e;
+    border: none;
+    color: white;
+    width: 173px;
+    height: 42px;
+    margin-left: 614px;
+    margin-top: 488px;
+    position: absolute;
+        }
+</style>
+<body>
+<h1 class="w3-jumbo w3-animate-top" style="margin-top: 30px;font-family: sans-serif;margin-left: 392px;color: white;border-style: solid;border-color: white;width: 528px;height: 46px;">My Account Details</h1>
+<form method="POST">
+    {% csrf_token %}
+
+<div class="space">
+         <div class="imga">
+    <table id="customers">
+
+
+        <tr>
+            <td>User ID:</td>
+            <td><input type="text" name="userid" value="{{ form.userid }}"></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="firstname" value="{{ form.firstname }}"></td>
+        </tr>
+        <tr>
+            <td>Email Id:</td>
+            <td><input type="text" name="email" value="{{ form.email }}"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" value="{{ form.password }}"></td>
+        </tr>
+        <tr>
+
+            <td>Mobile Number:</td>
+            <td><input type="number" name="mobilenumber" value="{{ form.mobilenumber}}"></td>
+        </tr>
+        <tr>
+            <td>Dob:</td>
+            <td><input type="text" name="dob" value="{{ form.dob }}"></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="number" name="age" value="{{ form.age }}"></td>
+        </tr>
+        <tr>
+        <td>Gender</td>
+            <td><input type="text" name="gender" value="{{ form.gender }}"></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" name="address" value="{{ form.address }}"></td>
+        </tr>
+        <tr>
+
+            <button type="submit" class="log" value="Submit">Submit</button>
+
+    </table>
+         </div>
+    </div>
+</form>
+</body>
+{% endblock %}
